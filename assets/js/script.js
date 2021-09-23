@@ -18,7 +18,7 @@ if (!taskNameInput || !taskTypeInput) {
       name: taskNameInput,
       type: taskTypeInput
   };
-
+console.log(taskDataObj.name);
   // send it as an argument to createTaskEl
   createTaskEl(taskDataObj);
 };
@@ -40,6 +40,7 @@ var createTaskEl = function (taskDataObj) {
   // add entire list item to list
   var taskActionsEl = createTaskActions(taskIdCounter);
     console.log(taskActionsEl);
+    listItemEl.appendChild(taskActionsEl);
     tasksToDoEl.appendChild(listItemEl);
 
   // increase task counter for next unique id
@@ -58,9 +59,9 @@ editButtonEl.setAttribute("data-task-id", taskId);
 
 actionContainerEl.appendChild(editButtonEl);
 //delete button
-var deleteButtonEl = document.createElement("delete");
+var deleteButtonEl = document.createElement("button");
 deleteButtonEl.textContent = "Delete";
-deleteButtonEl.className = "btn delte-btn";
+deleteButtonEl.className = "btn delete-btn";
 deleteButtonEl.setAttribute("data-task-id", taskId);
 
 actionContainerEl.appendChild(deleteButtonEl);
